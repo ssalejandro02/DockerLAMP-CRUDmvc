@@ -46,15 +46,14 @@ class mdlClientes
         $stmt->bindParam(':idE', $valor, PDO::PARAM_INT);
 
         if ($stmt->execute()) {
-            $result = 'ok';
+            return 'ok';
         } else {
-            $result = 'error';
+            echo "\nPDO::errorInfo():\n";
+            print_r(Conexion::conectar()->errorInfo());
         }
 
         $stmt->close();
         $stmt = null;
-
-        return $result;
     }
 
     /**
@@ -77,15 +76,13 @@ class mdlClientes
         $stmt->bindParam(':cp', $datos['cp'], PDO::PARAM_STR);
 
         if ($stmt->execute()) {
-            $result = 'ok';
+            return 'ok';
         } else {
-            $result = 'error';
+            echo 'error';
         }
 
         $stmt->close();
         $stmt = null;
-
-        return $result;
     }
 
     /**
@@ -128,14 +125,12 @@ class mdlClientes
         $stmt->bindParam(':cp', $datos['cp'], PDO::PARAM_STR);
 
         if ($stmt->execute()) {
-            $result = 'ok';
+            return 'ok';
         } else {
-            $result = 'error';
+            echo 'error';
         }
 
         $stmt->close();
         $stmt = null;
-
-        return $result;
     }
 }

@@ -40,15 +40,14 @@ class mdlUsuarios
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
         if ($stmt->execute()) {
-            $result = 'ok';
+            return 'ok';
         } else {
-            $result = 'error';
+            echo '\nPDO::errorInfo():\n';
+            print_r(Conexion::conectar()->errorInfo());
         }
 
         $stmt->close();
         $stmt = null;
-
-        return $result;
     }
 
     /**
@@ -71,15 +70,13 @@ class mdlUsuarios
         $stmt->bindParam(':IMG_E', $datos['img'], PDO::PARAM_STR);
 
         if ($stmt->execute()) {
-            $result = 'ok';
+            return 'ok';
         } else {
-            $result = 'error';
+            echo 'error';
         }
 
         $stmt->close();
         $stmt = null;
-
-        return $result;
     }
 
     /**
@@ -140,14 +137,12 @@ class mdlUsuarios
         $stmt->bindParam(':FOTO_u', $datos['img'], PDO::PARAM_STR);
 
         if ($stmt->execute()) {
-            $result = 'ok';
+            return 'ok';
         } else {
-            $result = 'error';
+            echo 'error';
         }
 
         $stmt->close();
         $stmt = null;
-
-        return $result;
     }
 }
